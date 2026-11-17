@@ -3,8 +3,10 @@ import { Faq } from "@/components/custom/faq/faq";
 import { HeroShaderMotion } from "@/components/custom/hero-shader/hero-shader-motion";
 import { IntegrationsGrid } from "@/components/custom/integrations-grid/integrations-grid";
 import { Newsletter } from "@/components/custom/newsletter/newsletter";
-import { StatsBandMotion } from "@/components/custom/stats-band/stats-band-motion";
+import { FlowBeamsMotion } from "@/components/custom/flow-beams/flow-beams-motion";
+import { NumberTickerMotion } from "@/components/custom/number-ticker/number-ticker-motion";
 import { TestimonialsWallMotion } from "@/components/custom/testimonials-wall/testimonials-wall-motion";
+import { GitMerge, GitPullRequest, ScanSearch, TestTubeDiagonal } from "lucide-react";
 import { Suspense } from "react";
 import { StatusLine } from "../_lib/status-line";
 import { content as c } from "./content";
@@ -14,7 +16,17 @@ export default function StackwiseHome() {
     <>
       <HeroShaderMotion {...c.hero} />
       <IntegrationsGrid id="integrations" {...c.integrations} />
-      <StatsBandMotion {...c.stats} />
+      <FlowBeamsMotion
+        title="How an upgrade happens"
+        description="Fictional product: the steps Stackwise would take for each dependency."
+        nodes={[
+          { icon: <ScanSearch />, label: "Scan", description: "Finds outdated packages" },
+          { icon: <GitPullRequest />, label: "Open a PR", description: "One upgrade per branch" },
+          { icon: <TestTubeDiagonal />, label: "Run your tests", description: "Fixes what breaks" },
+          { icon: <GitMerge />, label: "Merge", description: "Only when CI is green" },
+        ]}
+      />
+      <NumberTickerMotion {...c.stats} />
       <TestimonialsWallMotion {...c.testimonials} />
       <Faq id="faq" {...c.faq} />
       <div className="mx-auto max-w-6xl px-4 pb-16">

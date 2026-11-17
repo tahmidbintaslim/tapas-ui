@@ -52,7 +52,8 @@ export function FloatingNavInner({ brand, brandHref = "/", links, action }: Omit
   );
 }
 
-export const pillClass = "mx-auto max-w-4xl rounded-full border bg-background/80 py-2 pr-2 pl-4 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/70";
+// 95% opaque: muted links stay readable (AA) even over a dark card scrolling underneath.
+export const pillClass = "mx-auto max-w-4xl rounded-full border bg-background/95 py-2 pr-2 pl-4 shadow-sm backdrop-blur";
 
 /** A pill-shaped navbar floating over the page; links fold into a no-JS menu on phones. */
 export function NavbarFloating({ className, ...props }: NavbarFloatingProps) {

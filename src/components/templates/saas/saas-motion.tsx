@@ -6,7 +6,7 @@ import { HeroSplitMotion } from "@/components/custom/hero-split/hero-split-motio
 import { LogoCloudMotion } from "@/components/custom/logo-cloud/logo-cloud-motion";
 import { Navbar } from "@/components/custom/navbar/navbar";
 import { PricingTableMotion } from "@/components/custom/pricing-table/pricing-table-motion";
-import { StatsBandMotion } from "@/components/custom/stats-band/stats-band-motion";
+import { NumberTickerMotion } from "@/components/custom/number-ticker/number-ticker-motion";
 import { TestimonialsWallMotion } from "@/components/custom/testimonials-wall/testimonials-wall-motion";
 import { mergeContent, type ContentOverrides } from "../merge";
 import { saasContent, type SaasContent } from "./content";
@@ -22,7 +22,7 @@ export function SaasTemplateMotion({ content }: { content?: ContentOverrides<Saa
         Hero: HeroSplitMotion,
         LogoCloud: LogoCloudMotion,
         FeatureGrid: FeatureGridMotion,
-        StatsBand: StatsBandMotion,
+        StatsBand: NumberTickerMotion,
         TestimonialsWall: TestimonialsWallMotion,
         PricingTable: PricingTableMotion,
         Faq: FaqMotion,
