@@ -28,6 +28,11 @@ import { SocialProofMotion } from "./social-proof/social-proof-motion";
 import { StatsBandMotion } from "./stats-band/stats-band-motion";
 import { TestimonialHighlightMotion } from "./testimonial-highlight/testimonial-highlight-motion";
 import { TestimonialsWallMotion } from "./testimonials-wall/testimonials-wall-motion";
+import { BeamBorderMotion } from "./beam-border/beam-border-motion";
+import { DotFieldMotion } from "./dot-field/dot-field-motion";
+import { MagneticCtaMotion } from "./magnetic-cta/magnetic-cta-motion";
+import { SpotlightCardsMotion } from "./spotlight-cards/spotlight-cards-motion";
+import { TextRevealMotion } from "./text-reveal/text-reveal-motion";
 
 // Motion versions must hydrate the server's DOM in place, not swap in a new tree
 // after mount: a swap drops keyboard focus a visitor set before hydration finished.
@@ -58,6 +63,11 @@ const CASES: [string, React.ReactElement][] = [
   ["ComparisonTableMotion", <ComparisonTableMotion key="ct" title="T" caption="C" plans={["A"]} rows={[{ feature: "F", values: [true] }]} />],
   ["FaqTwoColumnMotion", <FaqTwoColumnMotion key="f2" items={[{ question: "Q", answer: "A" }]} />],
   ["TeamMotion", <TeamMotion key="tm" title="T" people={[{ name: "Ana Diaz", role: "Founder" }]} />],
+  ["SpotlightCardsMotion", <SpotlightCardsMotion key="sc" title="T" items={[{ title: "A", description: "a" }]} />],
+  ["BeamBorderMotion", <BeamBorderMotion key="bb" title="T" primaryAction={{ label: "Go", href: "#" }} />],
+  ["TextRevealMotion", <TextRevealMotion key="tr" text="One two three" />],
+  ["DotFieldMotion", <DotFieldMotion key="df" titleAs="h2" title="T" primaryAction={{ label: "Go", href: "#" }} />],
+  ["MagneticCtaMotion", <MagneticCtaMotion key="mc" title="T" primaryAction={{ label: "Go", href: "#" }} />],
 ];
 
 describe("motion sections keep the server DOM after hydration", () => {

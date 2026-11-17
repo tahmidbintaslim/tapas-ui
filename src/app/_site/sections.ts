@@ -23,6 +23,7 @@ export const GROUPS: { name: string; slugs: string[] }[] = [
   { name: "Company", slugs: ["team", "blog-grid", "changelog", "faq", "faq-two-column", "contact"] },
   { name: "Navigation & utility", slugs: ["navbar", "navbar-floating", "announcement-bar", "footer", "footer-simple", "not-found", "coming-soon"] },
   { name: "Cards", slugs: [] },
+  { name: "Effects", slugs: ["spotlight-cards", "beam-border", "text-reveal", "dot-field", "magnetic-cta"] },
 ];
 
 const groupOf = (name: string, kind: SectionKind) =>

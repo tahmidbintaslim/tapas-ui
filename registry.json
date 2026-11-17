@@ -587,6 +587,171 @@
       ]
     },
     {
+      "name": "spotlight-cards",
+      "type": "registry:component",
+      "title": "Spotlight cards",
+      "description": "A grid of feature cards with a gradient hairline border.",
+      "files": [
+        {
+          "path": "src/components/custom/spotlight-cards/spotlight-cards.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-cards-motion",
+      "type": "registry:component",
+      "title": "Spotlight cards (motion)",
+      "description": "The spotlight cards with a glow that follows the pointer across the grid, borders that light up near it and a slight tilt.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/spotlight-cards.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/spotlight-cards/spotlight-cards-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "beam-border",
+      "type": "registry:component",
+      "title": "Beam border",
+      "description": "A call-to-action panel with a gradient hairline border.",
+      "registryDependencies": [
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/beam-border/beam-border.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "beam-border-motion",
+      "type": "registry:component",
+      "title": "Beam border (motion)",
+      "description": "The beam border panel with a beam of light travelling around its border, with a pause button.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/beam-border.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/beam-border/beam-border-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "text-reveal",
+      "type": "registry:component",
+      "title": "Text reveal",
+      "description": "A large statement paragraph.",
+      "files": [
+        {
+          "path": "src/components/custom/text-reveal/text-reveal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "text-reveal-motion",
+      "type": "registry:component",
+      "title": "Text reveal (motion)",
+      "description": "The statement lighting up word by word as the reader scrolls through it.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/text-reveal.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/text-reveal/text-reveal-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dot-field",
+      "type": "registry:component",
+      "title": "Dot field",
+      "description": "Hero on a dot grid drawn with one CSS gradient.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "https://tapasui.tahmid.space/r/hero.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/dot-field/dot-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dot-field-motion",
+      "type": "registry:component",
+      "title": "Dot field (motion)",
+      "description": "The dot field hero with dots that swell and brighten around the pointer and a slow idle wave, on one canvas, with a pause button.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/dot-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/dot-field/dot-field-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-cta",
+      "type": "registry:component",
+      "title": "Magnetic CTA",
+      "description": "A call-to-action band with one large pill button.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/magnetic-cta/magnetic-cta.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-cta-motion",
+      "type": "registry:component",
+      "title": "Magnetic CTA (motion)",
+      "description": "The CTA band with a magnetic button that is pulled toward the pointer on a spring and squashes when pressed.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://tapasui.tahmid.space/r/magnetic-cta.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/magnetic-cta/magnetic-cta-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "hero-showcase",
       "type": "registry:component",
       "title": "Hero: showcase",
