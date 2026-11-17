@@ -8,7 +8,7 @@ import { CopyCommand } from "../../../_site/copy-command";
 import { CopyButton } from "../../../_site/copy-button";
 import { installCommand } from "../../../_site/links";
 import { aiPrompt, mcpPrompt } from "../../../_site/prompts";
-import { SECTIONS, getSection } from "../../../_site/sections";
+import { SECTIONS, getSection, groupColor, groupId } from "../../../_site/sections";
 import { ThemeSwatches } from "../../../_site/theme-swatches";
 import { DOCS } from "../../_content";
 import { CodeBlock, DocsHeader, H2, P, PropsTable, Toc } from "../../_ui";
@@ -80,8 +80,14 @@ export default async function SectionPage({ params }: { params: Promise<Params> 
   const source = readSource(slug, slug);
   const motionSource = motion && section.motionSlug ? readSource(slug, section.motionSlug) : undefined;
   const previewClass = doc.narrow
-    ? "theme-demo flex justify-center rounded-xl border bg-background px-4 py-12 sm:px-10"
+    ? "theme-demo flex justify-center rounded-xl border bg-background px-4 py-12 sm:px-10 sm:py-16"
     : "theme-demo overflow-clip rounded-xl border bg-background";
+  // Site chrome around the preview: a soft mat with a layered shadow. The preview inside keeps shadcn tokens.
+  const frame = (children: React.ReactNode) => (
+    <div className="rounded-2xl border bg-muted/40 p-2 shadow-[0_1px_2px_oklch(0_0_0/0.04),0_12px_40px_-16px_oklch(0_0_0/0.18)] sm:p-3">
+      {children}
+    </div>
+  );
 
   return (
     <div className="flex gap-10">
@@ -98,23 +104,35 @@ export default async function SectionPage({ params }: { params: Promise<Params> 
             license: "https://opensource.org/licenses/MIT",
           }}
         />
-        <DocsHeader crumb={section.group} title={section.title} lead={section.description} />
-
-        {/* One click to get the section into a project: by hand, through an AI tool, or through the shadcn MCP server. */}
-        <Variants
-          plain={<CopyActions code={source} prompt={aiPrompt({ slug, title: section.title, usage: doc.usage })} mcp={mcpPrompt(slug)} />}
-          motion={
-            motion &&
-            motionSource &&
-            section.motionSlug && (
-              <CopyActions
-                code={motionSource}
-                prompt={aiPrompt({ slug: section.motionSlug, title: `${section.title} (motion)`, usage: motion.usage })}
-                mcp={mcpPrompt(section.motionSlug)}
-              />
-            )
-          }
-        />
+        <DocsHeader
+          crumb={section.group}
+          crumbHref={`/docs/sections#${groupId(section.group)}`}
+          crumbColor={groupColor(section.group)}
+          title={section.title}
+          lead={section.description}
+        >
+          {/* One click to get the section into a project: the CLI, by hand, through an AI tool, or the shadcn MCP server. */}
+          <div className="space-y-3 pt-2">
+            <Variants
+              plain={<CopyCommand command={installCommand(slug)} className="bg-card shadow-xs" />}
+              motion={motion && section.motionSlug && <CopyCommand command={installCommand(section.motionSlug)} className="bg-card shadow-xs" />}
+            />
+            <Variants
+              plain={<CopyActions code={source} prompt={aiPrompt({ slug, title: section.title, usage: doc.usage })} mcp={mcpPrompt(slug)} />}
+              motion={
+                motion &&
+                motionSource &&
+                section.motionSlug && (
+                  <CopyActions
+                    code={motionSource}
+                    prompt={aiPrompt({ slug: section.motionSlug, title: `${section.title} (motion)`, usage: motion.usage })}
+                    mcp={mcpPrompt(section.motionSlug)}
+                  />
+                )
+              }
+            />
+          </div>
+        </DocsHeader>
 
         <section aria-labelledby="preview" className="theme-showcase space-y-3">
           <h2 id="preview" className="sr-only">
@@ -144,8 +162,8 @@ export default async function SectionPage({ params }: { params: Promise<Params> 
             )}
             <TabsContent value="preview" className="mt-3">
               <Variants
-                plain={<div className={previewClass}>{doc.preview}</div>}
-                motion={motion && <MotionPreview><div className={previewClass}>{motion.preview}</div></MotionPreview>}
+                plain={frame(<div className={previewClass}>{doc.preview}</div>)}
+                motion={motion && frame(<MotionPreview><div className={previewClass}>{motion.preview}</div></MotionPreview>)}
               />
             </TabsContent>
             <TabsContent value="code" className="mt-3">
