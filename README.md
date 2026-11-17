@@ -14,8 +14,9 @@ accessible and uses your theme.
 
 **Live demo:** https://tapasui.tahmid.space
 
-44 copy-paste sections (heroes, pricing, proof, features, navigation and
-cards), most with an optional motion version, plus three free page templates.
+60 copy-paste sections (heroes, pricing, proof, features, effects, product
+story, navigation and cards), almost all with an optional motion version, plus
+6 free page templates and 3 working demo sites.
 Each one installs with the shadcn CLI and lands in your repo as code you own.
 
 ![Tapas UI home page in the light theme: the title "Tapas UI", a one-line description and buttons to browse the components or view the code on GitHub](docs/images/home-light.png)
@@ -182,7 +183,7 @@ from `registry.json`.
 
 ## Heroes
 
-Ten heroes, each in a **plain** version (CSS only, renders as a server component,
+Eleven heroes, each in a **plain** version (CSS only, renders as a server component,
 no extra packages) and a **motion** version (a client component built on
 [`motion`](https://motion.dev)). Preview them at
 [tapasui.tahmid.space/docs/sections](https://tapasui.tahmid.space/docs/sections).
@@ -199,6 +200,7 @@ no extra packages) and a **motion** version (a client component built on
 | `hero-video` | Poster and video that never autoplays | `npx shadcn@latest add https://tapasui.tahmid.space/r/hero-video.json` | `…/r/hero-video-motion.json` |
 | `hero-theme-cycle` | The whole hero cycles through color themes | `npx shadcn@latest add https://tapasui.tahmid.space/r/hero-theme-cycle.json` | `…/r/hero-theme-cycle-motion.json` |
 | `hero-plates` | Sections stack into a page as you scroll | `npx shadcn@latest add https://tapasui.tahmid.space/r/hero-plates.json` | `…/r/hero-plates-motion.json` |
+| `hero-shader` | WebGL gradient in your primary color, with a CSS fallback and a pause button | `npx shadcn@latest add https://tapasui.tahmid.space/r/hero-shader.json` | `…/r/hero-shader-motion.json` |
 
 ### Plain and motion
 
@@ -213,7 +215,7 @@ no extra packages) and a **motion** version (a client component built on
 
 ## Sections
 
-44 sections: 10 heroes (above), 28 landing blocks and 6 cards. 35 of them also come in a motion version.
+60 sections: 11 heroes (above), 43 landing blocks and 6 cards. 57 of them also come in a motion version.
 Each installs with `npx shadcn@latest add https://tapasui.tahmid.space/r/<name>.json`
 (add `-motion` for the motion version). Live previews, props and notes are at
 [tapasui.tahmid.space/docs/sections](https://tapasui.tahmid.space/docs/sections).
@@ -223,7 +225,7 @@ Each installs with `npx shadcn@latest add https://tapasui.tahmid.space/r/<name>.
 | Section | What it does | Motion |
 | --- | --- | --- |
 | `pricing-table` | Pricing tiers with a monthly/yearly switch that works without JavaScript. | yes |
-| `comparison-table` | Feature-by-plan table with row headers that scrolls inside its own box on phones. | plain only |
+| `comparison-table` | Feature-by-plan table with row headers that scrolls inside its own box on phones. | yes |
 | `cta-banner` | Full-width call-to-action band with a heading, text and one button. | yes |
 | `cta-split` | Call-to-action band with your product image or component beside the copy. | yes |
 | `newsletter` | Newsletter signup band; a plain HTML form that works without JavaScript. | yes |
@@ -252,11 +254,11 @@ Each installs with `npx shadcn@latest add https://tapasui.tahmid.space/r/<name>.
 
 | Section | What it does | Motion |
 | --- | --- | --- |
-| `team` | The people behind the product: photo or initials, role, bio and links. | plain only |
+| `team` | The people behind the product: photo or initials, role, bio and links. | yes |
 | `blog-grid` | A grid of recent posts built from the blog card, with a view-all link. | yes |
-| `changelog` | Dated release notes with versions, newest first. | plain only |
+| `changelog` | Dated release notes with versions, newest first. | yes |
 | `faq` | Accordion-style FAQ built on native details and summary. | yes |
-| `faq-two-column` | FAQ with an intro column and contact link beside the questions. | plain only |
+| `faq-two-column` | FAQ with an intro column and contact link beside the questions. | yes |
 | `contact` | Contact form beside your contact details; works without JavaScript. | plain only |
 
 ### Navigation & utility
@@ -265,11 +267,41 @@ Each installs with `npx shadcn@latest add https://tapasui.tahmid.space/r/<name>.
 | --- | --- | --- |
 | `navbar` | Top navigation with a brand, links and an action; links fold into a no-JS menu on phones. | yes |
 | `navbar-floating` | A pill-shaped navbar floating over the page; links fold into a no-JS menu on phones. | yes |
-| `announcement-bar` | A slim, optionally dismissible bar above the navbar for one announcement. | plain only |
+| `announcement-bar` | A slim, optionally dismissible bar above the navbar for one announcement. | yes |
 | `footer` | Site footer with a brand name, link columns and a small-print line. | plain only |
 | `footer-simple` | A one-row footer with brand, a few links and small print. | plain only |
 | `not-found` | A friendly 404 section with a link home and optional helpful links. | yes |
-| `coming-soon` | Pre-launch section: what's coming, the launch date if known, and a notify form. | plain only |
+| `coming-soon` | Pre-launch section: what's coming, the launch date if known, and a notify form. | yes |
+
+### Proof and conversion
+
+| Section | What it does | Motion |
+| --- | --- | --- |
+| `number-ticker` | A row of big numbers in one panel, with labels. | yes |
+| `logo-velocity` | A wrapped row of logos or names. | yes |
+| `testimonial-stack` | Testimonial quotes in a grid. | yes |
+| `price-morph` | Pricing tiers with a monthly/yearly switch that works without JavaScript, and a save badge on yearly. | yes |
+| `launch-countdown` | A pre-launch section with the launch date and a slot for your waitlist form. | yes |
+
+### Effects
+
+| Section | What it does | Motion |
+| --- | --- | --- |
+| `spotlight-cards` | A grid of feature cards with a gradient hairline border. | yes |
+| `beam-border` | A call-to-action panel with a gradient hairline border. | yes |
+| `text-reveal` | A large statement paragraph. | yes |
+| `dot-field` | Hero on a dot grid drawn with one CSS gradient. | yes |
+| `magnetic-cta` | A call-to-action band with one large pill button. | yes |
+
+### Product story
+
+| Section | What it does | Motion |
+| --- | --- | --- |
+| `sticky-showcase` | A product story in steps, each with its media beside it. | yes |
+| `terminal-demo` | A terminal window with a transcript of commands and their output. | yes |
+| `device-frame` | A browser window or phone frame around any content, with a soft layered shadow. | yes |
+| `compare-slider` | Before and after, side by side and labelled; works without JavaScript. | yes |
+| `flow-beams` | A how-it-works diagram: icon nodes joined by drawn connectors. | yes |
 
 ### Cards
 
@@ -293,15 +325,18 @@ theme, so they work in light and dark mode.
 
 ## Templates
 
-Three free page templates built only from Tapas sections, each in a plain and
+6 free page templates built only from Tapas sections, each in a plain and
 a motion version. Browse them at
 [tapasui.tahmid.space/templates](https://tapasui.tahmid.space/templates).
 
 | Template | Page | Plain | Motion |
 | --- | --- | --- | --- |
-| SaaS landing page | Split hero, logos, features, stats, testimonials, pricing, FAQ, CTA | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-saas.json` | `…/r/template-saas-motion.json` |
-| Waitlist page | Floating navbar, waitlist hero, social proof, feature rows, FAQ | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-waitlist.json` | `…/r/template-waitlist-motion.json` |
-| AI product page | Announcement bar, spotlight hero, steps, integrations, comparison, pricing | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-ai.json` | `…/r/template-ai-motion.json` |
+| Template: SaaS landing page | A full SaaS landing page: split hero, logos, features, stats, testimonials, pricing, FAQ and CTA. Plain sections, no animation library. | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-saas.json` | `…/r/template-saas-motion.json` |
+| Template: Waitlist page | A pre-launch page: floating navbar, waitlist hero, social proof, feature rows and FAQ. Plain sections, no animation library. | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-waitlist.json` | `…/r/template-waitlist-motion.json` |
+| Template: AI product page | An AI product page: announcement bar, spotlight hero, steps, integrations, comparison and pricing. Plain sections, no animation library. | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-ai.json` | `…/r/template-ai-motion.json` |
+| Template: Pricing page | A pricing page: short hero, pricing table, plan comparison, FAQ and CTA. Plain sections, no animation library. | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-pricing.json` | `…/r/template-pricing-motion.json` |
+| Template: Changelog page | A changelog page: hero, dated release notes, recent blog posts and an email signup. Plain sections, no animation library. | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-changelog.json` | `…/r/template-changelog-motion.json` |
+| Template: Mobile app page | A mobile app landing page: floating navbar, split hero with a phone shot, feature rows, testimonials and CTA. Plain sections, no animation library. | `npx shadcn@latest add https://tapasui.tahmid.space/r/template-mobile-app.json` | `…/r/template-mobile-app-motion.json` |
 
 A template installs into `components/templates/<name>/` along with every
 section it uses. Pass your copy through one `content` prop; anything you leave
