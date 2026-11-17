@@ -230,13 +230,6 @@
   }
 }
 
-/* Landing menu ribbon: the list is rendered twice, so moving by half loops seamlessly. */
-@keyframes ribbon {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Landing hero demo: each check line slides in. */
 @keyframes launch-step {
   from {

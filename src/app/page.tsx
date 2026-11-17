@@ -1,5 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight, Bot, CreditCard, Inbox, MailCheck, Palette, PersonStanding, Server, ShieldCheck, User } from "lucide-react";
+import { DeviceFrameMotion } from "@/components/custom/device-frame/device-frame-motion";
+import { FlowBeamsMotion } from "@/components/custom/flow-beams/flow-beams-motion";
+import { HeroWaitlist } from "@/components/custom/hero-waitlist/hero-waitlist";
+import { MagneticCtaMotion } from "@/components/custom/magnetic-cta/magnetic-cta-motion";
+import { NumberTickerMotion } from "@/components/custom/number-ticker/number-ticker-motion";
+import { PricingCard } from "@/components/custom/pricing-card/pricing-card";
+import { SpotlightCardsMotion } from "@/components/custom/spotlight-cards/spotlight-cards-motion";
+import { StickyShowcaseMotion } from "@/components/custom/sticky-showcase/sticky-showcase-motion";
+import { TerminalDemoMotion } from "@/components/custom/terminal-demo/terminal-demo-motion";
 import Link from "next/link";
 import { CopyCommand } from "./_site/copy-command";
 import { GITHUB_URL, GOOD_FIRST_ISSUES_URL, installCommand } from "./_site/links";
@@ -10,7 +19,6 @@ import { SectionCard } from "./_site/section-card";
 import { HeroCanvas } from "./_landing/hero-canvas";
 import { HeroMark } from "./_landing/hero-mark";
 import { LaunchDemo } from "./_landing/launch-demo";
-import { MenuRibbon } from "./_landing/menu-ribbon";
 import { PageBuilder } from "./_landing/page-builder";
 import { Playground } from "./_landing/playground";
 import { Pricing } from "./_landing/pricing";
@@ -37,13 +45,75 @@ const JOBS = [
 
 /** Launch-day work each section already does. Facts about the code, not usage numbers. */
 const DONE = [
-  { text: "Stores emails", href: "/docs/sections/hero-waitlist" },
-  { text: "Takes payments", href: "/docs/sections/pricing-table" },
-  { text: "Blocks spam", href: "/docs/sections/newsletter" },
-  { text: "Accessible", href: "/docs" },
-  { text: "Uses your theme", href: "/docs/theming" },
-  { text: "Agent-ready", href: "/docs/installation" },
+  { title: "Stores emails", description: "Waitlist and newsletter forms post to your own API route and work without JavaScript.", icon: <Inbox /> },
+  { title: "Takes payments", description: "Every pricing button takes any checkout link, monthly and yearly.", icon: <CreditCard /> },
+  { title: "Blocks spam", description: "A hidden honeypot field catches bots without a puzzle for people.", icon: <ShieldCheck /> },
+  { title: "Accessible", description: "Semantic HTML, keyboard support, reduced motion and AA contrast in light and dark.", icon: <PersonStanding /> },
+  { title: "Uses your theme", description: "Only shadcn tokens, so every section picks up your colors and radius.", icon: <Palette /> },
+  { title: "Agent-ready", description: "Claude Code, Cursor or any agent with the shadcn MCP server can install them.", icon: <Bot /> },
 ];
+
+/** What happens when a visitor joins, using the real waitlist route in the demo sites. */
+const FLOW = [
+  { icon: <User />, label: "Visitor", description: "Types an email" },
+  { icon: <Inbox />, label: "Waitlist section", description: "Plain HTML form" },
+  { icon: <Server />, label: "Your API route", description: "Checks it, drops bots" },
+  { icon: <MailCheck />, label: "Your email list", description: "Resend, or any service" },
+];
+
+/** Three steps from install to launch, each shown with real sections. */
+function showcaseSteps() {
+  return [
+    {
+      title: "Install a section",
+      description: "One command copies the component into your project. It is your code now.",
+      media: (
+        <TerminalDemoMotion
+          label="Terminal"
+          lines={[
+            { kind: "command", text: "npx shadcn@latest add @tapas/hero-waitlist" },
+            { kind: "output", text: "✔ Checking registry." },
+            { kind: "output", text: "✔ Installing dependencies." },
+            { kind: "output", text: "✔ Created components/custom/hero-waitlist.tsx" },
+          ]}
+        />
+      ),
+    },
+    {
+      title: "Point it at your API",
+      description: "Set the form action and the checkout link. Your theme does the rest.",
+      media: (
+        <DeviceFrameMotion url="yourproduct.com">
+          <div className="theme-demo light bg-background text-foreground">
+            <HeroWaitlist eyebrow="Private beta" title="Be first in line" description="One email when we launch. Sample copy." action="#" className="py-12" />
+          </div>
+        </DeviceFrameMotion>
+      ),
+    },
+    {
+      title: "Ship it",
+      description: "Sign-ups land in your list, checkout goes to Stripe, and the page works on every screen.",
+      media: (
+        <DeviceFrameMotion device="phone">
+          <div className="theme-demo light flex min-h-full items-center bg-background p-4 text-foreground">
+            <PricingCard
+              name="Pro"
+              description="Sample plan"
+              price={19}
+              period="month"
+              ctaText="Start trial"
+              popular
+              features={[
+                { text: "Unlimited projects", included: true },
+                { text: "Priority support", included: true },
+              ]}
+            />
+          </div>
+        </DeviceFrameMotion>
+      ),
+    },
+  ];
+}
 
 const DEMOS = [
   { name: "Ledgerline", href: "/examples/ledgerline", body: "Invoicing for freelancers. Three pages, plain sections, no animation library." },
@@ -106,24 +176,30 @@ export default function Home() {
           </div>
         </HeroCanvas>
 
-        {/* Done for you */}
-        <section aria-labelledby="done-title" className="border-t px-4 py-10">
-          <h2 id="done-title" className="text-center text-[13px] font-medium text-muted-foreground">
-            Already done in every section
-          </h2>
-          <ul className="mx-auto mt-5 flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-3 text-lg font-semibold sm:text-xl">
-            {DONE.map((d, i) => (
-              <li key={d.text}>
-                <Link href={d.href} className="flex min-h-11 items-center gap-2.5 hover:text-brand focus-visible:outline-2 focus-visible:outline-brand">
-                  <span aria-hidden="true" className={`size-2.5 rounded-full ${["bg-saffron", "bg-paprika", "bg-olive"][i % 3]}`} />
-                  {d.text}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+        {/* Warm the new sections: they use shadcn tokens, so the landing page sets its own primary. */}
+        <div className="[--primary-foreground:var(--brand-foreground)] [--primary:var(--saffron)] [--ring:var(--saffron)]">
+          <SpotlightCardsMotion className="py-24" title="Already done in every section" description="The launch-day work you would otherwise write yourself." items={DONE} />
 
-        <MenuRibbon items={SECTIONS.map(({ slug, title }) => ({ slug, title }))} />
+          <FlowBeamsMotion
+            className="border-t py-24"
+            title="What happens when someone joins"
+            description="The same path the three demo sites use, end to end."
+            nodes={FLOW}
+          />
+
+          <StickyShowcaseMotion className="border-t" title="From install to launch" description="Three steps, each with real sections." steps={showcaseSteps()} />
+
+          <NumberTickerMotion
+            className="border-t py-24"
+            title="What's in the box"
+            stats={[
+              { value: SECTIONS.length, label: "Sections" },
+              { value: SECTIONS.filter((s) => s.motionSlug).length, label: "With a motion version" },
+              { value: TEMPLATES.length, label: "Page templates" },
+              { value: DEMOS.length, label: "Working demo sites" },
+            ]}
+          />
+        </div>
 
         {/* Sections by launch job */}
         <section aria-labelledby="jobs-title" className="border-t">
@@ -236,32 +312,15 @@ export default function Home() {
         </section>
 
         {/* Open source */}
-        <section
-          aria-labelledby="oss-title"
-          className="relative isolate overflow-hidden border-t px-4 py-28 text-center"
-        >
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[radial-gradient(40%_70%_at_20%_0%,color-mix(in_oklch,var(--olive)_14%,transparent),transparent),radial-gradient(45%_80%_at_50%_0%,color-mix(in_oklch,var(--saffron)_18%,transparent),transparent),radial-gradient(40%_70%_at_80%_0%,color-mix(in_oklch,var(--paprika)_16%,transparent),transparent)]"
+        <div className="border-t [--primary-foreground:var(--brand-foreground)] [--primary:var(--saffron)] [--ring:var(--saffron)]">
+          <MagneticCtaMotion
+            className="py-28"
+            title="Open source. Add the next section."
+            description="MIT licensed. Star the repo to follow along, or pick a good first issue."
+            primaryAction={{ label: "Star on GitHub", href: GITHUB_URL }}
+            secondaryAction={{ label: "See good first issues", href: GOOD_FIRST_ISSUES_URL }}
           />
-          <h2 id="oss-title" className="mx-auto max-w-3xl text-4xl leading-tight font-semibold tracking-[-0.035em] text-balance sm:text-[52px]">
-            Open source. Add the next <span className="text-paprika">section</span>.
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-pretty text-muted-foreground">
-            MIT licensed. Pick a good first issue and add the next section.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button asChild size="lg" className="h-11 px-6 text-[15px]">
-              <a href={GITHUB_URL}>
-                <Github aria-hidden="true" />
-                Star on GitHub
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="h-11 px-6 text-[15px]">
-              <a href={GOOD_FIRST_ISSUES_URL}>See good first issues</a>
-            </Button>
-          </div>
-        </section>
+        </div>
       </main>
       <SiteFooter />
     </div>
