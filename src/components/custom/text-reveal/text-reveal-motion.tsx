@@ -16,7 +16,8 @@ function Word({ children, i, n, progress, on }: { children: string; i: number; n
   // Each word brightens over one and a half slots, so neighbours overlap; the last tint ends exactly at 1.
   const start = i / (n + 3);
   const lit = (i + 1.5) / (n + 3);
-  const opacity = useTransform(progress, [start, lit], [0.22, 1]);
+  // Dim words stay at 3:1 contrast or better (large text), so unread lines are still readable.
+  const opacity = useTransform(progress, [start, lit], [0.45, 1]);
   const k = useTransform(progress, [start, lit, (i + 4) / (n + 3)], [0, 1, 0]);
   return <motion.span style={on ? ({ opacity, "--k": k, color: TINT } as MotionStyle) : undefined}>{children}</motion.span>;
 }
