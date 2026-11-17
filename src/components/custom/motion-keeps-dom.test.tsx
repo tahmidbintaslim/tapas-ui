@@ -32,6 +32,11 @@ import { LogoVelocityMotion } from "./logo-velocity/logo-velocity-motion";
 import { TestimonialStackMotion } from "./testimonial-stack/testimonial-stack-motion";
 import { PriceMorphMotion } from "./price-morph/price-morph-motion";
 import { LaunchCountdownMotion } from "./launch-countdown/launch-countdown-motion";
+import { CompareSliderMotion } from "./compare-slider/compare-slider-motion";
+import { DeviceFrameMotion } from "./device-frame/device-frame-motion";
+import { FlowBeamsMotion } from "./flow-beams/flow-beams-motion";
+import { StickyShowcaseMotion } from "./sticky-showcase/sticky-showcase-motion";
+import { TerminalDemoMotion } from "./terminal-demo/terminal-demo-motion";
 import { TestimonialsWallMotion } from "./testimonials-wall/testimonials-wall-motion";
 import { BeamBorderMotion } from "./beam-border/beam-border-motion";
 import { DotFieldMotion } from "./dot-field/dot-field-motion";
@@ -67,6 +72,11 @@ const CASES: [string, React.ReactElement][] = [
   ["ComingSoonMotion", <ComingSoonMotion key="cs2" titleAs="h2" title="T" action="#n" />],
   ["ComparisonTableMotion", <ComparisonTableMotion key="ct" title="T" caption="C" plans={["A"]} rows={[{ feature: "F", values: [true] }]} />],
   ["FaqTwoColumnMotion", <FaqTwoColumnMotion key="f2" items={[{ question: "Q", answer: "A" }]} />],
+  ["StickyShowcaseMotion", <StickyShowcaseMotion key="ss" title="T" steps={[{ title: "A", description: "a", media: <a href="#m">m</a> }]} />],
+  ["TerminalDemoMotion", <TerminalDemoMotion key="td" lines={[{ kind: "command", text: "ls" }, { kind: "output", text: "a" }]} />],
+  ["DeviceFrameMotion", <DeviceFrameMotion key="df"><a href="#m">m</a></DeviceFrameMotion>],
+  ["CompareSliderMotion", <CompareSliderMotion key="cm" before={<p>b</p>} after={<a href="#a">a</a>} />],
+  ["FlowBeamsMotion", <FlowBeamsMotion key="fb" title="T" nodes={[{ icon: <i />, label: "A" }, { icon: <i />, label: "B" }]} />],
   ["TeamMotion", <TeamMotion key="tm" title="T" people={[{ name: "Ana Diaz", role: "Founder" }]} />],
   ["NumberTickerMotion", <NumberTickerMotion key="nt" title="T" stats={[{ value: 10, label: "A" }]} />],
   ["LogoVelocityMotion", <LogoVelocityMotion key="lv" title="T" logos={[{ name: "A" }, { name: "B" }]} />],
@@ -85,7 +95,7 @@ describe("motion sections keep the server DOM after hydration", () => {
     const host = document.createElement("div");
     host.innerHTML = renderToString(el);
     document.body.append(host);
-    const before = host.querySelector("h2, h3, a, button, li, blockquote, p");
+    const before = host.querySelector("h2, h3, a, button, li, blockquote, p, pre");
     expect(before).not.toBeNull();
     await act(async () => {
       hydrateRoot(host, el);

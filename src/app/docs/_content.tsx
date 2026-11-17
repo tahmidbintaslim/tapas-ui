@@ -17,6 +17,7 @@ import { HERO_DOCS } from "./_content-heroes";
 import { FX_DOCS } from "./_content-fx";
 import { SECTION_DOCS } from "./_content-sections";
 import { PROOF_DOCS } from "./_content-proof";
+import { STORY_DOCS } from "./_content-story";
 
 export interface PropDoc {
   name: string;
@@ -644,4 +645,4 @@ const BASE_DOCS: Record<string, SectionDoc> = {
 
 // Hero variants live in _content-heroes.tsx to keep this file readable.
 
-export const DOCS: Record<string, SectionDoc> = { ...BASE_DOCS, ...HERO_DOCS, ...SECTION_DOCS, ...PROOF_DOCS, ...FX_DOCS };
+export const DOCS: Record<string, SectionDoc> = { ...BASE_DOCS, ...HERO_DOCS, ...SECTION_DOCS, ...PROOF_DOCS, ...FX_DOCS, ...STORY_DOCS };

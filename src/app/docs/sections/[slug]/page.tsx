@@ -81,7 +81,7 @@ export default async function SectionPage({ params }: { params: Promise<Params> 
   const motionSource = motion && section.motionSlug ? readSource(slug, section.motionSlug) : undefined;
   const previewClass = doc.narrow
     ? "theme-demo flex justify-center rounded-xl border bg-background px-4 py-12 sm:px-10"
-    : "theme-demo overflow-hidden rounded-xl border bg-background";
+    : "theme-demo overflow-clip rounded-xl border bg-background";
 
   return (
     <div className="flex gap-10">
