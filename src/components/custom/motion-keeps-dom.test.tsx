@@ -33,6 +33,11 @@ import { TestimonialStackMotion } from "./testimonial-stack/testimonial-stack-mo
 import { PriceMorphMotion } from "./price-morph/price-morph-motion";
 import { LaunchCountdownMotion } from "./launch-countdown/launch-countdown-motion";
 import { TestimonialsWallMotion } from "./testimonials-wall/testimonials-wall-motion";
+import { BeamBorderMotion } from "./beam-border/beam-border-motion";
+import { DotFieldMotion } from "./dot-field/dot-field-motion";
+import { MagneticCtaMotion } from "./magnetic-cta/magnetic-cta-motion";
+import { SpotlightCardsMotion } from "./spotlight-cards/spotlight-cards-motion";
+import { TextRevealMotion } from "./text-reveal/text-reveal-motion";
 
 // Motion versions must hydrate the server's DOM in place, not swap in a new tree
 // after mount: a swap drops keyboard focus a visitor set before hydration finished.
@@ -68,6 +73,11 @@ const CASES: [string, React.ReactElement][] = [
   ["TestimonialStackMotion", <TestimonialStackMotion key="ts" title="T" items={[{ quote: "Q", author: "A" }, { quote: "R", author: "B" }]} />],
   ["PriceMorphMotion", <PriceMorphMotion key="pm" plans={[{ name: "Pro", monthly: 20, yearly: 192, features: ["f"], cta: { label: "Buy", href: "#b" } }]} />],
   ["LaunchCountdownMotion", <LaunchCountdownMotion key="lc2" title="T" launchDate="2099-01-01" />],
+  ["SpotlightCardsMotion", <SpotlightCardsMotion key="sc" title="T" items={[{ title: "A", description: "a" }]} />],
+  ["BeamBorderMotion", <BeamBorderMotion key="bb" title="T" primaryAction={{ label: "Go", href: "#" }} />],
+  ["TextRevealMotion", <TextRevealMotion key="tr" text="One two three" />],
+  ["DotFieldMotion", <DotFieldMotion key="df" titleAs="h2" title="T" primaryAction={{ label: "Go", href: "#" }} />],
+  ["MagneticCtaMotion", <MagneticCtaMotion key="mc" title="T" primaryAction={{ label: "Go", href: "#" }} />],
 ];
 
 describe("motion sections keep the server DOM after hydration", () => {
