@@ -78,7 +78,8 @@ export function SpotlightCardsMotion(props: SpotlightCardsProps) {
   };
 
   return (
-    <section className={cn("mx-auto max-w-6xl px-4 py-16", className)} {...rest}>
+    // overflow-x-clip: the grid glow bleeds 2rem past the cards and would add sideways scroll on phones.
+    <section className={cn("mx-auto max-w-6xl overflow-x-clip px-4 py-16", className)} {...rest}>
       {title && <h2 className="text-center text-3xl font-bold tracking-tight text-balance">{title}</h2>}
       {description && <p className="mx-auto mt-3 max-w-2xl text-center text-pretty text-muted-foreground">{description}</p>}
       {items.length > 0 && (
