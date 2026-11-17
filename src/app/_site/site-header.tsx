@@ -5,18 +5,15 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { BrandMark } from "./brand-mark";
 import { getStarCount } from "./github-stars";
-import { CONTRIBUTING_URL } from "./links";
 import { StarButton } from "./star-button";
 
 const NAV = [
   { label: "Sections", href: "/docs/sections" },
   { label: "Templates", href: "/templates" },
   { label: "Docs", href: "/docs" },
-  // Wide screens only in the bar; the phone menu lists them all.
-  { label: "FAQ", href: "/docs/faq", wide: true },
-  { label: "Support", href: "/docs/support", wide: true },
+  // Help is the FAQ, which links on to Support; Contribute lives in the footer and the docs Help group.
+  { label: "Help", href: "/docs/faq" },
   { label: "Changelog", href: "/docs/changelog", wide: true },
-  { label: "Contribute", href: CONTRIBUTING_URL },
 ];
 
 /** Top bar shared by the landing page and the docs. */
