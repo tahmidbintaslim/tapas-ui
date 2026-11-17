@@ -44,3 +44,8 @@ export * from "./coming-soon";
 export * from "./announcement-bar";
 export * from "./navbar-floating";
 export * from "./footer-simple";
+export * from "./sticky-showcase";
+export * from "./terminal-demo";
+export * from "./device-frame";
+export * from "./compare-slider";
+export * from "./flow-beams";

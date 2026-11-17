@@ -1117,6 +1117,159 @@
       ]
     },
     {
+      "name": "sticky-showcase",
+      "type": "registry:component",
+      "title": "Sticky showcase",
+      "description": "A product story in steps, each with its media beside it.",
+      "files": [
+        {
+          "path": "src/components/custom/sticky-showcase/sticky-showcase.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sticky-showcase-motion",
+      "type": "registry:component",
+      "title": "Sticky showcase (motion)",
+      "description": "Scroll storytelling: the media pins while the steps scroll past and cross-fades to the active step.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/sticky-showcase.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/sticky-showcase/sticky-showcase-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "terminal-demo",
+      "type": "registry:component",
+      "title": "Terminal demo",
+      "description": "A terminal window with a transcript of commands and their output.",
+      "files": [
+        {
+          "path": "src/components/custom/terminal-demo/terminal-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "terminal-demo-motion",
+      "type": "registry:component",
+      "title": "Terminal demo (motion)",
+      "description": "The terminal types its commands and prints the output in sequence, with pause and replay buttons.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/terminal-demo.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/terminal-demo/terminal-demo-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "device-frame",
+      "type": "registry:component",
+      "title": "Device frame",
+      "description": "A browser window or phone frame around any content, with a soft layered shadow.",
+      "files": [
+        {
+          "path": "src/components/custom/device-frame/device-frame.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "device-frame-motion",
+      "type": "registry:component",
+      "title": "Device frame (motion)",
+      "description": "The device frame tilts in 3D toward the pointer with a moving highlight, and springs back flat.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/device-frame.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/device-frame/device-frame-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "compare-slider",
+      "type": "registry:component",
+      "title": "Compare slider",
+      "description": "Before and after, side by side and labelled; works without JavaScript.",
+      "files": [
+        {
+          "path": "src/components/custom/compare-slider/compare-slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "compare-slider-motion",
+      "type": "registry:component",
+      "title": "Compare slider (motion)",
+      "description": "A draggable, keyboard-operable divider reveals before or after, with a spring on release.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/compare-slider.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/compare-slider/compare-slider-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "flow-beams",
+      "type": "registry:component",
+      "title": "Flow beams",
+      "description": "A how-it-works diagram: icon nodes joined by drawn connectors.",
+      "files": [
+        {
+          "path": "src/components/custom/flow-beams/flow-beams.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "flow-beams-motion",
+      "type": "registry:component",
+      "title": "Flow beams (motion)",
+      "description": "Light beams travel along the connectors from node to node in a loop, with a pause button.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/flow-beams.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/flow-beams/flow-beams-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "steps",
       "type": "registry:component",
       "title": "Steps",
