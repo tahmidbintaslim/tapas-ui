@@ -1,13 +1,12 @@
 import type { CtaBanner } from "@/components/custom/cta-banner/cta-banner";
 import type { Faq } from "@/components/custom/faq/faq";
-import type { FeatureGrid } from "@/components/custom/feature-grid/feature-grid";
 import type { Footer } from "@/components/custom/footer/footer";
 import type { HeroSplit } from "@/components/custom/hero-split/hero-split";
-import type { LogoCloud } from "@/components/custom/logo-cloud/logo-cloud";
 import type { Navbar } from "@/components/custom/navbar/navbar";
 import type { PricingTable } from "@/components/custom/pricing-table/pricing-table";
 import type { StatsBand } from "@/components/custom/stats-band/stats-band";
 import type { TestimonialsWall } from "@/components/custom/testimonials-wall/testimonials-wall";
+import type * as React from "react";
 import { ProductShot } from "../product-shot";
 import type { SaasContent } from "./content";
 
@@ -15,8 +14,9 @@ import type { SaasContent } from "./content";
 export interface SaasUi {
   Navbar: typeof Navbar;
   Hero: typeof HeroSplit;
-  LogoCloud: typeof LogoCloud;
-  FeatureGrid: typeof FeatureGrid;
+  // These two are typed by the content they get, so the motion version can render any section that fits.
+  LogoCloud: React.ComponentType<{ title?: string; logos: { name: string }[] }>;
+  FeatureGrid: React.ComponentType<SaasContent["features"] & { id?: string }>;
   StatsBand: typeof StatsBand;
   TestimonialsWall: typeof TestimonialsWall;
   PricingTable: typeof PricingTable;
