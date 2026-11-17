@@ -1241,6 +1241,178 @@
       ]
     },
     {
+      "name": "number-ticker",
+      "type": "registry:component",
+      "title": "Number ticker",
+      "description": "A row of big numbers in one panel, with labels.",
+      "files": [
+        {
+          "path": "src/components/custom/number-ticker/number-ticker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "number-ticker-motion",
+      "type": "registry:component",
+      "title": "Number ticker (motion)",
+      "description": "The number row with every digit rolling into place like an odometer.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/number-ticker/number-ticker-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logo-velocity",
+      "type": "registry:component",
+      "title": "Logo velocity",
+      "description": "A wrapped row of logos or names.",
+      "files": [
+        {
+          "path": "src/components/custom/logo-velocity/logo-velocity.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logo-velocity-motion",
+      "type": "registry:component",
+      "title": "Logo velocity (motion)",
+      "description": "The logo row as a marquee that speeds up and turns with the page scroll, with a pause button.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/logo-velocity.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/logo-velocity/logo-velocity-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-stack",
+      "type": "registry:component",
+      "title": "Testimonial stack",
+      "description": "Testimonial quotes in a grid.",
+      "files": [
+        {
+          "path": "src/components/custom/testimonial-stack/testimonial-stack.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "testimonial-stack-motion",
+      "type": "registry:component",
+      "title": "Testimonial stack (motion)",
+      "description": "The quotes as a deck: swipe the top card away or use the buttons and arrow keys.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://tapasui.tahmid.space/r/testimonial-stack.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/testimonial-stack/testimonial-stack-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "price-morph",
+      "type": "registry:component",
+      "title": "Price morph",
+      "description": "Pricing tiers with a monthly/yearly switch that works without JavaScript, and a save badge on yearly.",
+      "files": [
+        {
+          "path": "src/components/custom/price-morph/price-morph.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "badge",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "price-morph-motion",
+      "type": "registry:component",
+      "title": "Price morph (motion)",
+      "description": "The pricing tiers with prices morphing digit by digit and the save badge popping in.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "https://tapasui.tahmid.space/r/price-morph.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/price-morph/price-morph-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "launch-countdown",
+      "type": "registry:component",
+      "title": "Launch countdown",
+      "description": "A pre-launch section with the launch date and a slot for your waitlist form.",
+      "files": [
+        {
+          "path": "src/components/custom/launch-countdown/launch-countdown.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "launch-countdown-motion",
+      "type": "registry:component",
+      "title": "Launch countdown (motion)",
+      "description": "The pre-launch section with a live countdown clock, a pause button and a launched state.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "badge",
+        "https://tapasui.tahmid.space/r/launch-countdown.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/custom/launch-countdown/launch-countdown-motion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "changelog",
       "type": "registry:component",
       "title": "Changelog",
