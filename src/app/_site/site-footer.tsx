@@ -24,6 +24,14 @@ const COLUMNS = [
     ],
   },
   {
+    title: "Help",
+    links: [
+      { label: "FAQ", href: "/docs/faq" },
+      { label: "Support", href: "/docs/support" },
+      { label: "Changelog", href: "/docs/changelog" },
+    ],
+  },
+  {
     title: "Community",
     links: [
       { label: "GitHub", href: GITHUB_URL },
@@ -51,7 +59,7 @@ export async function SiteFooter() {
           </p>
           <StarButton count={stars} />
         </div>
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 sm:gap-16">
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:gap-x-16 lg:grid-cols-4 lg:gap-12">
           {COLUMNS.map((column) => (
             <div key={column.title} className="space-y-3">
               <h2 className="text-[13px] font-semibold">{column.title}</h2>

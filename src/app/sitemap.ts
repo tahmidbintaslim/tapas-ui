@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { SECTIONS } from "./_site/sections";
 import { TEMPLATES } from "./_site/templates";
+import { DOC_PAGES } from "./docs/_pages";
 
 const BASE = "https://tapasui.tahmid.space";
 
@@ -8,12 +8,9 @@ const BASE = "https://tapasui.tahmid.space";
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "/",
-    "/docs",
-    "/docs/installation",
-    "/docs/theming",
-    "/docs/sections",
     "/templates",
-    ...SECTIONS.map((s) => `/docs/sections/${s.slug}`),
+    // Every docs page, section pages included, from the sidebar.
+    ...DOC_PAGES.map((p) => p.href),
     ...TEMPLATES.flatMap((t) => [`/templates/${t.slug}`, `/templates/${t.slug}/motion`]),
   ];
   return paths.map((p) => ({ url: `${BASE}${p}` }));
