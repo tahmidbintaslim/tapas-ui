@@ -7,7 +7,7 @@ import type { HeroSpotlight } from "@/components/custom/hero-spotlight/hero-spot
 import type { IntegrationsGrid } from "@/components/custom/integrations-grid/integrations-grid";
 import type { Navbar } from "@/components/custom/navbar/navbar";
 import type { PricingTable } from "@/components/custom/pricing-table/pricing-table";
-import type { Steps } from "@/components/custom/steps/steps";
+import type * as React from "react";
 import { ProductShot } from "../product-shot";
 import type { AiContent } from "./content";
 
@@ -16,7 +16,8 @@ export interface AiUi {
   Navbar: typeof Navbar;
   Hero: typeof HeroSpotlight;
   FeatureGrid: typeof FeatureGrid;
-  Steps: typeof Steps;
+  // Typed by the content it gets, so the motion version can render any how-it-works section that fits.
+  Steps: React.ComponentType<AiContent["steps"] & { id?: string }>;
   IntegrationsGrid: typeof IntegrationsGrid;
   ComparisonTable: typeof ComparisonTable;
   PricingTable: typeof PricingTable;

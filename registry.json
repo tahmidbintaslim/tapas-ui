@@ -2062,9 +2062,9 @@
         "https://tapasui.tahmid.space/r/template-saas.json",
         "https://tapasui.tahmid.space/r/cta-banner-motion.json",
         "https://tapasui.tahmid.space/r/faq-motion.json",
-        "https://tapasui.tahmid.space/r/feature-grid-motion.json",
+        "https://tapasui.tahmid.space/r/spotlight-cards-motion.json",
         "https://tapasui.tahmid.space/r/hero-split-motion.json",
-        "https://tapasui.tahmid.space/r/logo-cloud-motion.json",
+        "https://tapasui.tahmid.space/r/logo-velocity-motion.json",
         "https://tapasui.tahmid.space/r/pricing-table-motion.json",
         "https://tapasui.tahmid.space/r/number-ticker-motion.json",
         "https://tapasui.tahmid.space/r/testimonials-wall-motion.json"
@@ -2125,7 +2125,8 @@
         "https://tapasui.tahmid.space/r/feature-rows-motion.json",
         "https://tapasui.tahmid.space/r/hero-waitlist-motion.json",
         "https://tapasui.tahmid.space/r/navbar-floating-motion.json",
-        "https://tapasui.tahmid.space/r/social-proof-motion.json"
+        "https://tapasui.tahmid.space/r/social-proof-motion.json",
+        "https://tapasui.tahmid.space/r/launch-countdown-motion.json"
       ],
       "files": [
         {
@@ -2192,7 +2193,7 @@
         "https://tapasui.tahmid.space/r/hero-spotlight-motion.json",
         "https://tapasui.tahmid.space/r/integrations-grid-motion.json",
         "https://tapasui.tahmid.space/r/pricing-table-motion.json",
-        "https://tapasui.tahmid.space/r/steps-motion.json"
+        "https://tapasui.tahmid.space/r/flow-beams-motion.json"
       ],
       "files": [
         {
@@ -2251,7 +2252,7 @@
         "https://tapasui.tahmid.space/r/cta-banner-motion.json",
         "https://tapasui.tahmid.space/r/faq-motion.json",
         "https://tapasui.tahmid.space/r/hero-motion.json",
-        "https://tapasui.tahmid.space/r/pricing-table-motion.json",
+        "https://tapasui.tahmid.space/r/price-morph-motion.json",
         "https://tapasui.tahmid.space/r/comparison-table-motion.json"
       ],
       "files": [
@@ -2369,7 +2370,8 @@
         "https://tapasui.tahmid.space/r/feature-rows-motion.json",
         "https://tapasui.tahmid.space/r/hero-split-motion.json",
         "https://tapasui.tahmid.space/r/navbar-floating-motion.json",
-        "https://tapasui.tahmid.space/r/testimonials-wall-motion.json"
+        "https://tapasui.tahmid.space/r/testimonial-stack-motion.json",
+        "https://tapasui.tahmid.space/r/device-frame-motion.json"
       ],
       "files": [
         {
