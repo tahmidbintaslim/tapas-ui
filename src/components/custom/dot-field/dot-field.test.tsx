@@ -58,3 +58,18 @@ describe("stepDot", () => {
     expect(s).toBeCloseTo(1, 2);
   });
 });
+
+describe("DotField extra content", () => {
+  it.each([
+    ["plain", DotField],
+    ["motion", DotFieldMotion],
+  ])("%s renders children under the copy and a rich title", (_, C) => {
+    render(
+      <C title={<>Launch <em>fast</em></>}>
+        <form aria-label="Join" />
+      </C>,
+    );
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toBe("Launch fast");
+    expect(screen.getByRole("form", { name: "Join" })).toBeTruthy();
+  });
+});
