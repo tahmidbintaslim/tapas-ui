@@ -4,6 +4,7 @@ import { FaqTwoColumn } from "@/components/custom/faq-two-column/faq-two-column"
 import { FeatureRowsMotion } from "@/components/custom/feature-rows/feature-rows-motion";
 import { HeroCommandMotion } from "@/components/custom/hero-command/hero-command-motion";
 import { NewsletterMotion } from "@/components/custom/newsletter/newsletter-motion";
+import { TerminalDemoMotion } from "@/components/custom/terminal-demo/terminal-demo-motion";
 import { PricingTableMotion } from "@/components/custom/pricing-table/pricing-table-motion";
 import { Suspense } from "react";
 import { StatusLine } from "../_lib/status-line";
@@ -14,16 +15,12 @@ const ICONS = { git: <GitPullRequest />, pen: <PenLine />, layers: <Layers />, c
 
 const SAMPLE_NOTES = ["## v1.5.0", "- Export invoices as PDF from the list view", "- Search now matches client names", "- 12 dependency updates"];
 
-function Sample({ lines }: { lines: string[] }) {
-  return (
-    <pre aria-label="Sample output" className="overflow-x-auto rounded-xl border bg-muted p-5 text-left text-sm leading-relaxed">
-      <code>{lines.join("\n")}</code>
-    </pre>
-  );
-}
-
 export default function PatchnoteHome() {
-  const media = [<Sample key="d" lines={["$ " + c.hero.command, ...SAMPLE_NOTES]} />, <Sample key="p" lines={SAMPLE_NOTES} />];
+  const out = (lines: string[]) => lines.map((text) => ({ kind: "output" as const, text }));
+  const media = [
+    <TerminalDemoMotion key="d" label="Sample output" lines={[{ kind: "command", text: c.hero.command }, ...out(SAMPLE_NOTES)]} />,
+    <TerminalDemoMotion key="p" label="Sample output" lines={[{ kind: "command", text: "patchnote publish --to changelog" }, ...out(SAMPLE_NOTES)]} />,
+  ];
   return (
     <>
       <HeroCommandMotion {...c.hero} />
