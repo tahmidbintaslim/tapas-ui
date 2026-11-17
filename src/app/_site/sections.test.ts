@@ -24,9 +24,9 @@ describe("docs coverage", () => {
     const names = GROUPS.map((g) => g.name);
     for (const s of SECTIONS) expect(names).toContain(s.group);
   });
-  it("groups appear in a fixed order with heroes first", async () => {
+  it("the original groups keep their order with heroes first; new groups follow", async () => {
     const { GROUPS } = await import("./sections");
-    expect(GROUPS.map((g) => g.name)).toEqual(["Heroes", "Marketing", "Proof", "Features", "Company", "Navigation & utility", "Cards"]);
+    expect(GROUPS.map((g) => g.name).slice(0, 7)).toEqual(["Heroes", "Marketing", "Proof", "Features", "Company", "Navigation & utility", "Cards"]);
   });
 });
 

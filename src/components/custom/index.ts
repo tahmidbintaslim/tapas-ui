@@ -44,3 +44,8 @@ export * from "./coming-soon";
 export * from "./announcement-bar";
 export * from "./navbar-floating";
 export * from "./footer-simple";
+export * from "./number-ticker";
+export * from "./logo-velocity";
+export * from "./testimonial-stack";
+export * from "./price-morph";
+export * from "./launch-countdown";

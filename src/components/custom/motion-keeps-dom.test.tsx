@@ -27,6 +27,11 @@ import { NotFoundMotion } from "./not-found/not-found-motion";
 import { SocialProofMotion } from "./social-proof/social-proof-motion";
 import { StatsBandMotion } from "./stats-band/stats-band-motion";
 import { TestimonialHighlightMotion } from "./testimonial-highlight/testimonial-highlight-motion";
+import { NumberTickerMotion } from "./number-ticker/number-ticker-motion";
+import { LogoVelocityMotion } from "./logo-velocity/logo-velocity-motion";
+import { TestimonialStackMotion } from "./testimonial-stack/testimonial-stack-motion";
+import { PriceMorphMotion } from "./price-morph/price-morph-motion";
+import { LaunchCountdownMotion } from "./launch-countdown/launch-countdown-motion";
 import { TestimonialsWallMotion } from "./testimonials-wall/testimonials-wall-motion";
 
 // Motion versions must hydrate the server's DOM in place, not swap in a new tree
@@ -58,6 +63,11 @@ const CASES: [string, React.ReactElement][] = [
   ["ComparisonTableMotion", <ComparisonTableMotion key="ct" title="T" caption="C" plans={["A"]} rows={[{ feature: "F", values: [true] }]} />],
   ["FaqTwoColumnMotion", <FaqTwoColumnMotion key="f2" items={[{ question: "Q", answer: "A" }]} />],
   ["TeamMotion", <TeamMotion key="tm" title="T" people={[{ name: "Ana Diaz", role: "Founder" }]} />],
+  ["NumberTickerMotion", <NumberTickerMotion key="nt" title="T" stats={[{ value: 10, label: "A" }]} />],
+  ["LogoVelocityMotion", <LogoVelocityMotion key="lv" title="T" logos={[{ name: "A" }, { name: "B" }]} />],
+  ["TestimonialStackMotion", <TestimonialStackMotion key="ts" title="T" items={[{ quote: "Q", author: "A" }, { quote: "R", author: "B" }]} />],
+  ["PriceMorphMotion", <PriceMorphMotion key="pm" plans={[{ name: "Pro", monthly: 20, yearly: 192, features: ["f"], cta: { label: "Buy", href: "#b" } }]} />],
+  ["LaunchCountdownMotion", <LaunchCountdownMotion key="lc2" title="T" launchDate="2099-01-01" />],
 ];
 
 describe("motion sections keep the server DOM after hydration", () => {
