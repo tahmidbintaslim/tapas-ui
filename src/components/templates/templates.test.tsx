@@ -35,6 +35,10 @@ describe.each(cases)("%s template", (_, Plain, Motion) => {
     render(<Plain content={{ hero: { title: "My own headline" } }} />);
     expect(screen.getByRole("heading", { level: 1 }).textContent).toContain("My own headline");
   });
+  it("motion version takes content overrides too", () => {
+    render(<Motion content={{ hero: { title: "My own headline" } }} />);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toContain("My own headline");
+  });
   it("has a main landmark", () => {
     render(<Plain />);
     expect(screen.getByRole("main")).toBeTruthy();
@@ -42,20 +46,46 @@ describe.each(cases)("%s template", (_, Plain, Motion) => {
 });
 
 describe("motion flag swaps in motion sections", () => {
-  it("saas motion uses the drifting testimonials wall", () => {
+  it("saas motion's drifting testimonials wall and logo row each have a pause control", () => {
     render(<SaasTemplateMotion />);
-    expect(screen.getByRole("button", { name: "Pause scrolling" })).toBeTruthy();
+    expect(screen.getAllByRole("button", { name: "Pause scrolling" })).toHaveLength(2);
   });
   it("saas plain has no motion-only controls", () => {
     render(<SaasTemplate />);
     expect(screen.queryByRole("button", { name: "Pause scrolling" })).toBeNull();
   });
-  it("mobile-app motion uses the drifting testimonials wall, plain does not", () => {
-    const { unmount } = render(<MobileAppTemplateMotion />);
-    expect(screen.getByRole("button", { name: "Pause scrolling" })).toBeTruthy();
+  it("mobile-app motion frames the hero shot in a phone and keeps every quote", () => {
+    const { container, unmount } = render(<MobileAppTemplateMotion />);
+    expect(container.querySelector('[data-device="phone"]')).toBeTruthy();
+    expect(screen.getByRole("img", { name: "Sample app screen: today's habits" })).toBeTruthy();
+    expect(screen.getByText(/only reason I still drink water/)).toBeTruthy();
     unmount();
-    render(<MobileAppTemplate />);
-    expect(screen.queryByRole("button", { name: "Pause scrolling" })).toBeNull();
+    const plain = render(<MobileAppTemplate />);
+    expect(plain.container.querySelector("[data-device]")).toBeNull();
+  });
+  it("pricing motion uses price-morph with the same plans and checkout links", () => {
+    render(<PricingTemplateMotion />);
+    expect(screen.getByRole("group", { name: "Billing period" })).toBeTruthy();
+    for (const name of ["Free", "Pro", "Business"]) expect(screen.getByRole("listitem", { name })).toBeTruthy();
+    expect(screen.getByRole("link", { name: "Contact sales" }).getAttribute("href")).toBe("#contact");
+  });
+  it("waitlist motion adds a labelled sample countdown and keeps the form", () => {
+    const { unmount } = render(<WaitlistTemplateMotion />);
+    expect(screen.getByText("Sample launch date")).toBeTruthy();
+    expect(screen.getByRole("textbox", { name: "Email address" }).closest("form")?.getAttribute("action")).toBe("#join");
+    unmount();
+    render(<WaitlistTemplate />);
+    expect(screen.queryByText("Sample launch date")).toBeNull();
+  });
+  it("saas motion uses spotlight cards and the velocity logo row", () => {
+    render(<SaasTemplateMotion />);
+    expect(screen.getByRole("heading", { level: 3, name: "One script" })).toBeTruthy();
+    expect(screen.getAllByText("Northwind").length).toBeGreaterThan(0);
+  });
+  it("ai motion draws the steps as a flow", () => {
+    const { container } = render(<AiTemplateMotion />);
+    expect(container.querySelectorAll('[data-slot="flow-node"]')).toHaveLength(3);
+    expect(screen.getByText("Connect your docs")).toBeTruthy();
   });
   it("pricing and changelog render their key sections", () => {
     render(<PricingTemplate />);

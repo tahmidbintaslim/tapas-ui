@@ -4,14 +4,15 @@ import type { Faq } from "@/components/custom/faq/faq";
 import type { Footer } from "@/components/custom/footer/footer";
 import type { Hero } from "@/components/custom/hero/hero";
 import type { Navbar } from "@/components/custom/navbar/navbar";
-import type { PricingTable } from "@/components/custom/pricing-table/pricing-table";
+import type * as React from "react";
 import type { PricingContent } from "./content";
 
 /** The sections a pricing page is built from; plain and motion entry points pass their own versions. */
 export interface PricingUi {
   Navbar: typeof Navbar;
   Hero: typeof Hero;
-  PricingTable: typeof PricingTable;
+  // Typed by the content it gets, so the motion version can render any plans section that fits.
+  PricingTable: React.ComponentType<PricingContent["pricing"] & { id?: string }>;
   ComparisonTable: typeof ComparisonTable;
   Faq: typeof Faq;
   CtaBanner: typeof CtaBanner;

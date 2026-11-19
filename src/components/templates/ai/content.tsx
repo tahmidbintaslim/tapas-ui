@@ -1,4 +1,4 @@
-import { Bot, Database, Shield, Sparkles, Timer, Workflow } from "lucide-react";
+import { BookOpen, Bot, Database, Inbox, Rocket, Shield, Sparkles, Timer, Workflow } from "lucide-react";
 
 /** Every string the AI product template shows. Edit here, or pass overrides via `content`. All sample copy. */
 export const aiContent = {
@@ -33,9 +33,9 @@ export const aiContent = {
   steps: {
     title: "How it works",
     steps: [
-      { title: "Connect your docs", description: "Point Relay at your help center." },
-      { title: "Review drafts", description: "Approve or edit replies in your inbox." },
-      { title: "Turn on autopilot", description: "Let Relay answer what it's sure about." },
+      { title: "Connect your docs", description: "Point Relay at your help center.", icon: <BookOpen /> },
+      { title: "Review drafts", description: "Approve or edit replies in your inbox.", icon: <Inbox /> },
+      { title: "Turn on autopilot", description: "Let Relay answer what it's sure about.", icon: <Rocket /> },
     ],
   },
   integrations: {

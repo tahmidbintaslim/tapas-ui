@@ -15,18 +15,21 @@ export interface WaitlistUi {
   SocialProof: typeof SocialProof;
   FeatureRows: typeof FeatureRows;
   Faq: typeof FaqTwoColumn;
+  /** Optional launch clock under the social proof; the plain template leaves it out. */
+  Countdown?: React.ComponentType<WaitlistContent["countdown"]>;
   Footer: typeof FooterSimple;
 }
 
 /** A complete pre-launch waitlist page. */
 export function WaitlistLayout({ c, ui }: { c: WaitlistContent; ui: WaitlistUi }) {
-  const { Navbar, Hero, SocialProof, FeatureRows, Faq, Footer } = ui;
+  const { Navbar, Hero, SocialProof, Countdown, FeatureRows, Faq, Footer } = ui;
   return (
     <>
       <Navbar brand={c.brand.name} brandHref={c.brand.href} links={c.nav.links} action={c.nav.action} />
       <main>
         <Hero id="join" {...c.hero} />
         <SocialProof text={c.proof.text} people={c.proof.people.map((name) => ({ name }))} className="-mt-6 pb-8" />
+        {Countdown && <Countdown {...c.countdown} />}
         <FeatureRows id="features" title={c.features.title} rows={c.features.rows.map((r) => ({ ...r, media: <ProductShot label={`Sample screen: ${r.label}`} /> }))} />
         <Faq id="faq" {...c.faq} />
       </main>

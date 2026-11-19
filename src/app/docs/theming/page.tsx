@@ -1,5 +1,5 @@
 import { pageMeta } from "@/app/_site/meta";
-import { C, CodeBlock, DocsHeader, H2, P } from "../_ui";
+import { A, C, CodeBlock, DocsHeader, H2, P } from "../_ui";
 
 export const metadata = pageMeta("Theming | Tapas UI", "Tapas UI sections use your shadcn theme variables for color, radius and dark mode.", "/docs/theming");
 
@@ -7,7 +7,7 @@ export default function Theming() {
   return (
     <article className="max-w-3xl space-y-8">
       <DocsHeader
-        crumb="Getting started"
+        crumb="Customization"
         title="Theming"
         lead="Tapas sections have no theme of their own. They read the CSS variables shadcn/ui puts in your globals.css, so changing your theme changes every section."
       />
@@ -31,7 +31,7 @@ export default function Theming() {
         <H2 id="dark">Dark mode</H2>
         <P>
           Sections use the same variables in dark mode, so whatever you define under <C>.dark</C> applies. Pair it with
-          a theme switcher such as next-themes.
+          a theme switcher such as next-themes. <A href="/docs/dark-mode">Dark mode</A> has the setup.
         </P>
       </section>
       <section aria-labelledby="radius" className="space-y-4">

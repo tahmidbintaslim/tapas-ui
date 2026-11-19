@@ -2,6 +2,7 @@ import { FaqTwoColumn } from "@/components/custom/faq-two-column/faq-two-column"
 import { FeatureRowsMotion } from "@/components/custom/feature-rows/feature-rows-motion";
 import { FooterSimple } from "@/components/custom/footer-simple/footer-simple";
 import { HeroWaitlistMotion } from "@/components/custom/hero-waitlist/hero-waitlist-motion";
+import { LaunchCountdownMotion } from "@/components/custom/launch-countdown/launch-countdown-motion";
 import { NavbarFloatingMotion } from "@/components/custom/navbar-floating/navbar-floating-motion";
 import { SocialProofMotion } from "@/components/custom/social-proof/social-proof-motion";
 import { mergeContent, type ContentOverrides } from "../merge";
@@ -17,6 +18,7 @@ export function WaitlistTemplateMotion({ content }: { content?: ContentOverrides
         Navbar: NavbarFloatingMotion,
         Hero: HeroWaitlistMotion,
         SocialProof: SocialProofMotion,
+        Countdown: LaunchCountdownMotion,
         FeatureRows: FeatureRowsMotion,
         Faq: FaqTwoColumn,
         Footer: FooterSimple,
