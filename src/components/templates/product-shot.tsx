@@ -25,9 +25,9 @@ export function ProductShot({ label = "Sample dashboard" }: { label?: string }) 
 }
 
 /** Sample phone screenshot for templates: a labelled fake app screen. Replace with your own. */
-export function PhoneShot({ label = "Sample app screen" }: { label?: string }) {
+export function PhoneShot({ label = "Sample app screen", bare = false }: { label?: string; /** No bezel, for use inside a device frame */ bare?: boolean }) {
   return (
-    <div role="img" aria-label={label} className="mx-auto w-full max-w-[16rem] rounded-[2.5rem] border-8 border-foreground/10 bg-card p-4 shadow-xl">
+    <div role="img" aria-label={label} className={bare ? "h-full bg-card p-4" : "mx-auto w-full max-w-[16rem] rounded-[2.5rem] border-8 border-foreground/10 bg-card p-4 shadow-xl"}>
       <div className="mx-auto h-1.5 w-16 rounded-full bg-muted-foreground/30" />
       <div className="mt-5 h-3 w-24 rounded bg-primary" />
       <div className="mt-2 h-2 w-32 rounded bg-muted-foreground/30" />

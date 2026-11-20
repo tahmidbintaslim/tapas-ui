@@ -4,7 +4,15 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import type { HeroBaseProps } from "@/components/custom/hero/hero";
 
-export interface DotFieldProps extends HeroBaseProps, Omit<React.ComponentProps<"section">, "title"> {}
+export type DotFieldCopyProps = Omit<HeroBaseProps, "title"> & {
+  /** Text, or rich content such as a logo or an accented word. */
+  title: React.ReactNode;
+};
+
+export interface DotFieldProps extends DotFieldCopyProps, Omit<React.ComponentProps<"section">, "title"> {
+  /** Extra content under the copy, such as a signup form or an install command. */
+  children?: React.ReactNode;
+}
 
 /** Fades the dots out toward the edges. Used by the CSS grid and by the motion version's canvas. */
 export const dotFieldMask = "[mask-image:radial-gradient(ellipse_75%_70%_at_center,black_35%,transparent_100%)]";
@@ -25,7 +33,7 @@ export function DotFieldBackdrop({ className }: { className?: string }) {
 }
 
 /** Badge, heading, description and links, on a soft patch of the page background so the dots never fight the text. */
-export function DotFieldCopy({ titleAs: TitleTag = "h1", eyebrow, title, description, primaryAction, secondaryAction }: HeroBaseProps) {
+export function DotFieldCopy({ titleAs: TitleTag = "h1", eyebrow, title, description, primaryAction, secondaryAction }: DotFieldCopyProps) {
   return (
     <div className="relative mx-auto max-w-3xl">
       <div aria-hidden="true" className="absolute -inset-x-10 -inset-y-8 -z-10 bg-[radial-gradient(closest-side,var(--background)_45%,transparent)]" />
@@ -51,11 +59,12 @@ export function DotFieldCopy({ titleAs: TitleTag = "h1", eyebrow, title, descrip
 }
 
 /** Hero on a dot grid. The motion version makes the dots swell and brighten around the pointer. */
-export function DotField({ titleAs, eyebrow, title, description, primaryAction, secondaryAction, className, ...props }: DotFieldProps) {
+export function DotField({ titleAs, eyebrow, title, description, primaryAction, secondaryAction, className, children, ...props }: DotFieldProps) {
   return (
     <section className={cn("relative isolate overflow-hidden px-4 py-28 text-center", className)} {...props}>
       <DotFieldBackdrop />
       <DotFieldCopy {...{ titleAs, eyebrow, title, description, primaryAction, secondaryAction }} />
+      {children}
     </section>
   );
 }

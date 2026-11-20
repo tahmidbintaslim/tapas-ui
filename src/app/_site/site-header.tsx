@@ -5,21 +5,25 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { BrandMark } from "./brand-mark";
 import { getStarCount } from "./github-stars";
-import { CONTRIBUTING_URL } from "./links";
 import { StarButton } from "./star-button";
 
 const NAV = [
   { label: "Sections", href: "/docs/sections" },
   { label: "Templates", href: "/templates" },
   { label: "Docs", href: "/docs" },
-  { label: "Contribute", href: CONTRIBUTING_URL },
+  // Help is the FAQ, which links on to Support; Contribute lives in the footer and the docs Help group.
+  { label: "Help", href: "/docs/faq" },
+  { label: "Changelog", href: "/docs/changelog", wide: true },
 ];
 
 /** Top bar shared by the landing page and the docs. */
 export async function SiteHeader({
   showThemeToggle = false,
+  search,
   className,
 }: {
+  /** Docs pass their search button here. */
+  search?: React.ReactNode;
   /** The landing page is always dark, so only the docs offer the toggle. */
   showThemeToggle?: boolean;
   className?: string;
@@ -35,15 +39,15 @@ export async function SiteHeader({
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2.5 rounded-md whitespace-nowrap text-[17px] font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+          className="flex shrink-0 items-center gap-2.5 [@media(pointer:coarse)]:min-h-11 rounded-md whitespace-nowrap text-[17px] font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
         >
           <BrandMark />
           Tapas UI
         </Link>
         <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-8 text-sm font-medium text-muted-foreground">
+          <ul className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
             {NAV.map((item) => (
-              <li key={item.label}>
+              <li key={item.label} className={item.wide ? "hidden xl:list-item" : undefined}>
                 <Link
                   href={item.href}
                   className="rounded-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
@@ -55,9 +59,11 @@ export async function SiteHeader({
           </ul>
         </nav>
         <div className="flex items-center gap-2">
+          {search}
           {showThemeToggle && <ThemeToggle />}
           <StarButton count={stars} className="hidden lg:inline-flex" />
-          <Button asChild size="sm" className="h-11 md:h-8">
+          {/* On docs pages the search button takes this spot on small phones; the docs are already open. */}
+          <Button asChild size="sm" className={cn("h-11 md:h-8", search && "hidden sm:inline-flex")}>
             <Link href="/docs">Get started</Link>
           </Button>
           {/* Phones and small tablets: the same links in a no-JS disclosure menu. */}

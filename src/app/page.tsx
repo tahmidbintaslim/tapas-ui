@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, CreditCard, Inbox, MailCheck, Palette, PersonStanding, Server, ShieldCheck, User } from "lucide-react";
+import { BeamBorderMotion } from "@/components/custom/beam-border/beam-border-motion";
+import { CompareSliderMotion } from "@/components/custom/compare-slider/compare-slider-motion";
+import { LogoVelocityMotion } from "@/components/custom/logo-velocity/logo-velocity-motion";
+import { TextRevealMotion } from "@/components/custom/text-reveal/text-reveal-motion";
+import { DotFieldMotion } from "@/components/custom/dot-field/dot-field-motion";
 import { DeviceFrameMotion } from "@/components/custom/device-frame/device-frame-motion";
 import { FlowBeamsMotion } from "@/components/custom/flow-beams/flow-beams-motion";
 import { HeroWaitlist } from "@/components/custom/hero-waitlist/hero-waitlist";
@@ -128,6 +133,15 @@ function playgroundSources() {
   return Object.fromEntries(PLAYGROUND.map((p) => [p.slug, { plain: read(p.slug, p.slug), motion: read(p.slug, `${p.slug}-motion`) }]));
 }
 
+/** One section in two themes, for the compare slider: only the CSS variables differ. */
+function ThemedWaitlist({ vars, label }: { vars: Record<string, string>; label: string }) {
+  return (
+    <div className="theme-demo light bg-background text-foreground" style={vars as React.CSSProperties}>
+      <HeroWaitlist titleAs="h2" eyebrow={label} title="Be first in line" description="One email when we launch. Sample copy." action="#" className="py-14" />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     // The landing page is always dark, whatever the visitor's theme; the docs follow their choice.
@@ -147,26 +161,25 @@ export default function Home() {
       <SiteHeader />
       <main>
         <HeroCanvas>
-          <section aria-labelledby="hero-title" className="px-4 pt-16 pb-14 text-center sm:pt-20">
-            <HeroMark />
-            <h1
-              id="hero-title"
-              className="mx-auto mt-8 max-w-4xl text-[clamp(2.5rem,7vw,4.5rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-balance"
-            >
-              Launch pages that actually <span className="text-brand">work</span>.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-muted-foreground sm:text-[19px]">
-              {SECTIONS.length} free sections, {TEMPLATES.length} page templates and {DEMOS.length} working demo sites for Next.js and shadcn/ui.
-              Copy them in, or let Claude Code, Cursor or any agent with the shadcn MCP server install them.
-            </p>
-            <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button asChild size="lg" className="h-11 px-6 text-[15px]">
-                <Link href="/docs/installation">Get started (free)</Link>
-              </Button>
-              <CopyCommand command={installCommand("hero-waitlist")} className="h-11 w-full sm:w-auto sm:max-w-md" />
+          {/* The hero is our own dot-field section: the grid answers the pointer, with a pause button. */}
+          <DotFieldMotion
+            className="pt-16 pb-14 [--primary-foreground:var(--brand-foreground)] [--primary:var(--saffron)] [--ring:var(--saffron)] sm:pt-20"
+            title={
+              <>
+                <HeroMark />
+                <span className="mt-8 block">
+                  Launch pages that actually <span className="text-brand">work</span>.
+                </span>
+              </>
+            }
+            description={`${SECTIONS.length} free sections, ${TEMPLATES.length} page templates and ${DEMOS.length} working demo sites for Next.js and shadcn/ui. Copy them in, or let Claude Code, Cursor or any agent with the shadcn MCP server install them.`}
+            primaryAction={{ label: "Get started (free)", href: "/docs/installation" }}
+          >
+            <div className="relative mx-auto mt-4 flex max-w-md justify-center">
+              <CopyCommand command={installCommand("hero-waitlist")} className="h-11 w-full" />
             </div>
             <LaunchDemo checkoutHref={TEST_CHECKOUT} />
-          </section>
+          </DotFieldMotion>
           {/* The product itself, live: real sections stacked into a page. */}
           <div className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 lg:px-8">
             <h2 className="mb-5 text-center text-sm font-medium text-muted-foreground">
@@ -178,7 +191,18 @@ export default function Home() {
 
         {/* Warm the new sections: they use shadcn tokens, so the landing page sets its own primary. */}
         <div className="[--primary-foreground:var(--brand-foreground)] [--primary:var(--saffron)] [--ring:var(--saffron)]">
+          <LogoVelocityMotion
+            className="border-t"
+            title="Built for the stack you already use"
+            logos={[{ name: "Next.js" }, { name: "React 19" }, { name: "shadcn/ui" }, { name: "Tailwind CSS v4" }, { name: "TypeScript" }, { name: "Motion" }, { name: "Server Components" }]}
+          />
+
           <SpotlightCardsMotion className="py-24" title="Already done in every section" description="The launch-day work you would otherwise write yourself." items={DONE} />
+
+          <TextRevealMotion
+            className="border-t"
+            text="Most landing page kits stop at how it looks. Tapas sections also do the launch-day work: the form stores the email, the button takes the payment, and the page still reads with JavaScript off."
+          />
 
           <FlowBeamsMotion
             className="border-t py-24"
@@ -188,6 +212,27 @@ export default function Home() {
           />
 
           <StickyShowcaseMotion className="border-t" title="From install to launch" description="Three steps, each with real sections." steps={showcaseSteps()} />
+
+          <section aria-labelledby="theme-title" className="mx-auto max-w-5xl border-t px-4 py-24 text-center">
+            <h2 id="theme-title" className="text-3xl font-bold tracking-tight text-balance">
+              Your theme, not ours
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-pretty text-muted-foreground">
+              The same waitlist section with two shadcn themes. Drag the handle, or focus it and use the arrow keys.
+            </p>
+            <CompareSliderMotion
+              className="mt-10 text-left"
+              beforeLabel="Default shadcn"
+              afterLabel="Your brand"
+              before={<ThemedWaitlist label="Default" vars={{}} />}
+              after={
+                <ThemedWaitlist
+                  label="Your brand"
+                  vars={{ "--primary": "oklch(0.546 0.245 262.881)", "--primary-foreground": "oklch(0.985 0 0)", "--radius": "1.25rem" }}
+                />
+              }
+            />
+          </section>
 
           <NumberTickerMotion
             className="border-t py-24"
@@ -208,7 +253,7 @@ export default function Home() {
               <h2 id="jobs-title" className="max-w-2xl text-4xl leading-tight font-semibold tracking-[-0.03em] text-balance sm:text-[44px]">
                 Everything a launch page has to do.
               </h2>
-              <Button asChild variant="outline" className="w-fit">
+              <Button asChild variant="outline" className="w-fit [@media(pointer:coarse)]:min-h-11">
                 <Link href="/docs/sections">
                   View all {SECTIONS.length} sections
                   <ArrowRight aria-hidden="true" />
@@ -282,7 +327,7 @@ export default function Home() {
               <h2 id="templates-title" className="text-4xl leading-tight font-semibold tracking-[-0.03em] text-balance sm:text-[44px]">
                   Or start from a <span className="text-saffron">whole page</span>.
                 </h2>
-              <Button asChild variant="outline" className="w-fit">
+              <Button asChild variant="outline" className="w-fit [@media(pointer:coarse)]:min-h-11">
                 <Link href="/templates">
                   All templates
                   <ArrowRight aria-hidden="true" />
@@ -310,6 +355,17 @@ export default function Home() {
             </div>
           </Reveal>
         </section>
+
+        {/* Final call to action */}
+        <div className="border-t [--primary-foreground:var(--brand-foreground)] [--primary:var(--saffron)] [--ring:var(--saffron)]">
+          <BeamBorderMotion
+            className="py-24"
+            title="Ship your launch page this week"
+            description="Start with one section or a whole template. It is your code from the first command."
+            primaryAction={{ label: "Read the docs", href: "/docs/installation" }}
+            secondaryAction={{ label: "Browse templates", href: "/templates" }}
+          />
+        </div>
 
         {/* Open source */}
         <div className="border-t [--primary-foreground:var(--brand-foreground)] [--primary:var(--saffron)] [--ring:var(--saffron)]">

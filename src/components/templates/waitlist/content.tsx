@@ -9,6 +9,12 @@ export const waitlistContent = {
     action: "#join",
     note: "Sample form: it submits nowhere until you point action at your API.",
   },
+  countdown: {
+    badge: "Sample launch date",
+    title: "Doors open soon",
+    description: "A made-up date for this template. Set launchDate to your own.",
+    launchDate: "2027-06-01T16:00:00Z",
+  },
   proof: { text: "300 people joined this week (sample)", people: ["Ana", "Ben", "Cy", "Dee", "Eli"] },
   features: {
     title: "Why people are waiting",

@@ -135,7 +135,7 @@ function startField(canvas: HTMLCanvasElement, section: HTMLElement, pointer: Po
  * slow wave crosses the field when no pointer is around. Drawn on one canvas. Pauses off screen,
  * follows reduced motion, and has a pause button.
  */
-export function DotFieldMotion({ titleAs, eyebrow, title, description, primaryAction, secondaryAction, className, ...props }: DotFieldProps) {
+export function DotFieldMotion({ titleAs, eyebrow, title, description, primaryAction, secondaryAction, className, children, ...props }: DotFieldProps) {
   const reduced = useReducedMotion();
   const mounted = useMounted();
   const [paused, setPaused] = React.useState(false);
@@ -193,6 +193,7 @@ export function DotFieldMotion({ titleAs, eyebrow, title, description, primaryAc
         </>
       )}
       <DotFieldCopy {...{ titleAs, eyebrow, title, description, primaryAction, secondaryAction }} />
+      {children}
     </section>
   );
 }

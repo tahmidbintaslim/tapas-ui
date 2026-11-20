@@ -25,7 +25,7 @@ export function ThemeSwatches({
   return (
     <div className={cn("flex items-center gap-1.5", className)}>
       {THEMES.map((theme) => (
-        <label key={theme.value} className="relative grid size-7 cursor-pointer place-items-center rounded-full">
+        <label key={theme.value} className="relative grid size-7 cursor-pointer [@media(pointer:coarse)]:size-11 place-items-center rounded-full">
           <input
             type="radio"
             name={name}
