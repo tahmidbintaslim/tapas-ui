@@ -45,10 +45,10 @@ export function TemplateCard({
         <p className="text-sm leading-relaxed text-muted-foreground">{t.description}</p>
         {!compact && <p className="text-xs text-muted-foreground">Built from: {t.sections.map((s) => getSection(s)?.title ?? s).join(", ")}</p>}
         <div className="mt-auto flex gap-2 pt-2">
-          <Link href={`/templates/${t.slug}`} aria-label={`View plain ${t.title}`} className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+          <Link href={`/templates/${t.slug}`} aria-label={`View plain ${t.title}`} className="inline-flex items-center [@media(pointer:coarse)]:min-h-11 rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">
             View plain
           </Link>
-          <Link href={`/templates/${t.slug}/motion`} aria-label={`View motion ${t.title}`} className="rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-muted">
+          <Link href={`/templates/${t.slug}/motion`} aria-label={`View motion ${t.title}`} className="inline-flex items-center [@media(pointer:coarse)]:min-h-11 rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-muted">
             View motion
           </Link>
         </div>

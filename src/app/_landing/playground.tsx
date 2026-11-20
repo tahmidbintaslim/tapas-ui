@@ -89,7 +89,7 @@ export function Playground({ sources }: { sources: Record<string, { plain: strin
           type="button"
           disabled={variant === "plain"}
           onClick={() => setReplay((r) => r + 1)}
-          className="ml-auto inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 font-medium transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50"
+          className="ml-auto inline-flex items-center gap-1.5 [@media(pointer:coarse)]:min-h-11 rounded-md border px-2.5 py-1.5 font-medium transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50"
         >
           <RotateCcw aria-hidden="true" className="size-3.5" />
           Replay animation
@@ -99,8 +99,8 @@ export function Playground({ sources }: { sources: Record<string, { plain: strin
       <div className="mt-5 grid gap-5 lg:grid-cols-2">
         <Tabs defaultValue="usage" className="min-w-0">
           <TabsList>
-            <TabsTrigger value="usage">usage.tsx</TabsTrigger>
-            <TabsTrigger value="source">{file}</TabsTrigger>
+            <TabsTrigger value="usage" className="[@media(pointer:coarse)]:min-h-11">usage.tsx</TabsTrigger>
+            <TabsTrigger value="source" className="[@media(pointer:coarse)]:min-h-11">{file}</TabsTrigger>
           </TabsList>
           <TabsContent value="usage" className="mt-3">
             <pre tabIndex={0} className="h-[26rem] overflow-auto rounded-xl border bg-card p-4 font-mono text-[13px] leading-relaxed focus-visible:outline-2 focus-visible:outline-brand">

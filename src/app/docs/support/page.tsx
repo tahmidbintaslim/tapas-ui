@@ -27,7 +27,7 @@ const CHANNELS = [
   {
     icon: ShieldAlert,
     title: "Report a security issue",
-    body: "Please do not open a public issue. Report it privately through a GitHub security advisory; only the maintainer can see it.",
+    body: "Please do not open a public issue. Report it privately through a GitHub security advisory; only the maintainer can see it. The policy is in SECURITY.md.",
     href: `${GITHUB_URL}/security/advisories/new`,
     cta: "Report privately",
   },
