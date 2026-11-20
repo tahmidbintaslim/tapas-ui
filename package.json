@@ -66,7 +66,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "chromatic": "18.13.9",
     "eslint": "^9",
-    "eslint-config-next": "15.5.28",
+    "eslint-config-next": "16.4.5",
     "eslint-plugin-storybook": "10.6.2",
     "jsdom": "29.1.1",
     "shadcn": "^4.23.0",
