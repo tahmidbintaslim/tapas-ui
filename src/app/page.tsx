@@ -253,7 +253,7 @@ export default function Home() {
               <h2 id="jobs-title" className="max-w-2xl text-4xl leading-tight font-semibold tracking-[-0.03em] text-balance sm:text-[44px]">
                 Everything a launch page has to do.
               </h2>
-              <Button asChild variant="outline" className="w-fit">
+              <Button asChild variant="outline" className="w-fit [@media(pointer:coarse)]:min-h-11">
                 <Link href="/docs/sections">
                   View all {SECTIONS.length} sections
                   <ArrowRight aria-hidden="true" />
@@ -327,7 +327,7 @@ export default function Home() {
               <h2 id="templates-title" className="text-4xl leading-tight font-semibold tracking-[-0.03em] text-balance sm:text-[44px]">
                   Or start from a <span className="text-saffron">whole page</span>.
                 </h2>
-              <Button asChild variant="outline" className="w-fit">
+              <Button asChild variant="outline" className="w-fit [@media(pointer:coarse)]:min-h-11">
                 <Link href="/templates">
                   All templates
                   <ArrowRight aria-hidden="true" />

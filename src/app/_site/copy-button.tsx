@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { Check, Copy } from "lucide-react";
@@ -15,7 +16,8 @@ export function CopyButton({ text, label, className }: { text: string; label: st
       type="button"
       variant="outline"
       size="sm"
-      className={className}
+      // 44px tall on touch screens; desktop keeps the compact size.
+      className={cn("[@media(pointer:coarse)]:min-h-11", className)}
       onClick={() => {
         navigator.clipboard
           ?.writeText(text)

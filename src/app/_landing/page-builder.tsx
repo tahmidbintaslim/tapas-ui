@@ -305,7 +305,7 @@ export function PageBuilder() {
                 aria-pressed={pressed}
                 onClick={() => toggle(chip.id)}
                 className={cn(
-                  "rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand",
+                  "[@media(pointer:coarse)]:min-h-11 rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand",
                   pressed
                     ? "border-brand/60 bg-brand/15 text-foreground"
                     : "bg-card text-muted-foreground hover:text-foreground",

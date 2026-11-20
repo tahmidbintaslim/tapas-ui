@@ -64,7 +64,7 @@ export function Pricing() {
               </li>
             ))}
           </ul>
-          <Button asChild variant={plan.featured ? "default" : "outline"} className="mt-8">
+          <Button asChild variant={plan.featured ? "default" : "outline"} className="mt-8 [@media(pointer:coarse)]:min-h-11">
             {plan.cta.external ? <a href={plan.cta.href}>{plan.cta.label}</a> : <Link href={plan.cta.href}>{plan.cta.label}</Link>}
           </Button>
         </li>
